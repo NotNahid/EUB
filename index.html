@@ -7,37 +7,84 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header>
-    <h1>BornoBridge</h1>
-    <p>English ↔ Bangla Book Translations by Uni Friends</p>
+    <div class="content">
+      <h1>BornoBridge</h1>
+      <p>🌉 English ↔ Bangla Book Translations by University Friends</p>
+    </div>
   </header>
 
-  <section class="book-section">
-    <h2>Our Translated Books</h2>
-    <div class="book-grid">
-      <!-- Book 1 -->
-      <div class="book-card">
-        <a href="https://yourbooklink1.com" target="_blank">
-          <img src="images/book1.jpg" alt="Book Title 1">
-          <p>Book Title 1</p>
-        </a>
+  <div class="container">
+    <section class="upload-section">
+      <h2>📚 Add New Translation</h2>
+      <div class="upload-form">
+        <div class="form-group">
+          <label for="bookTitle">Book Title:</label>
+          <input type="text" id="bookTitle" placeholder="Enter the book title" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="originalAuthor">Original Author:</label>
+          <input type="text" id="originalAuthor" placeholder="Author of the original book" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="translator">Translator:</label>
+          <input type="text" id="translator" placeholder="Your friend's name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="language">Translation Direction:</label>
+          <select id="language" required>
+            <option value="">Select translation direction</option>
+            <option value="en-to-bn">English to Bangla</option>
+            <option value="bn-to-en">Bangla to English</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" placeholder="Brief description of the book" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Upload PDF:</label>
+          <div class="file-input-wrapper">
+            <input type="file" id="pdfFile" accept=".pdf" required>
+            <div class="file-input-display">
+              <span class="file-icon">📄</span>
+              <span>Choose PDF file or drag & drop here</span>
+            </div>
+          </div>
+        </div>
+        
+        <button type="button" class="add-btn" onclick="addBook()">
+          ✨ Add Translation
+        </button>
       </div>
+    </section>
+  </div>
 
-      <!-- Book 2 -->
-      <div class="book-card">
-        <a href="https://yourbooklink2.com" target="_blank">
-          <img src="https://covers.shakespeareandcompany.com/97801404/9780140444445.jpg" alt="Book Title 2">
-          <p>Book Title 2</p>
-        </a>
+  <section class="books-section">
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-number" id="totalBooks">0</span>
+        <span class="stat-label">Total Books</span>
       </div>
-
-      <!-- Add more books easily -->
+      <div class="stat-item">
+        <span class="stat-number" id="totalTranslators">0</span>
+        <span class="stat-label">Translators</span>
+      </div>
+    </div>
+    
+    <h2>📖 Our Translated Books</h2>
+    <div class="books-grid" id="booksGrid">
+      <!-- Books will be added here dynamically -->
     </div>
   </section>
 
   <footer>
-    
+    <p>&copy; 2025 BornoBridge Translation Team | Made with ❤️ by University Friends</p>
   </footer>
 
   <script src="script.js"></script>
